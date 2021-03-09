@@ -52,4 +52,10 @@ async def predictrtw(request: Request):
   df = predictrtw(json_test)
   return JSONResponse(df,status_code=200, headers=None,media_type='application/json')
 
-
+@app.post('/models/WC_VSJPE6X4/v21.1/predictrtw')
+async def predictrtw(request: Request): 
+      data = await request.json()
+      json_test = pd.DataFrame(data)
+      from predictrtw import predictrtw
+      df = predictrtw(json_test)
+      return JSONResponse(df,status_code=200, headers=None,media_type='application/json')
